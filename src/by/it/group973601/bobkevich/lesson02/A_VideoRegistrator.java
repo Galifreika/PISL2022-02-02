@@ -44,7 +44,7 @@ public class A_VideoRegistrator {
         //за время до конца работы, увеличивая индекс
         while (i < events.length) {
             result.add(events[i]);
-            double end = events[i] + workDuration;
+            double end = events[i] + workDuration;  //timeWorkDuration время работы видеокамеры после старта
             i++;
             while (events[i] <= end) {
                 i++;

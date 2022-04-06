@@ -40,7 +40,7 @@ public class C_GreedyKnapsack {
 
         @Override
         public int compareTo(Item o) {
-            //тут может быть ваш компаратор
+            //компаратор -  класс, содержащий функцию compare , которая сравнивает два объекта
             return Double.compare((double)this.cost / (double)this.weight, (double)o.cost / (double)o.weight);
         }
     }
@@ -55,7 +55,7 @@ public class C_GreedyKnapsack {
         }
         //покажем предметы
         for (Item item:items) {
-           // System.out.println(item);
+          System.out.println(item);
         }
         System.out.printf("Всего предметов: %d. Рюкзак вмещает %d кг.\n",n,W);
 
