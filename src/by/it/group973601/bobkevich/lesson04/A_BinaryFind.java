@@ -40,7 +40,8 @@ public class A_BinaryFind {
         for (int i = 1; i <= n; i++) {
             a[i-1] = scanner.nextInt();
         }
-
+//1234455
+// 0 5 7 10
         //размер массива индексов
         int k = scanner.nextInt();
         int[] result=new int[k];
@@ -51,12 +52,12 @@ public class A_BinaryFind {
             while (low <= high) {
                 // для начала найдем индекс среднего элемента массива
                 int mid = (low + high) / 2;
-                if (a[mid] < value) {
-                    low = mid + 1;
-                } else if (a[mid] > value) {// если число заданного для поиска
+                if (a[mid] < value) {// если число заданного для поиска <
+                    low = mid + 1;// увеличиваем на 1
+                } else if (a[mid] > value) {
                     high = mid - 1;// уменьшаем позицию на 1.
                 } else if (a[mid] == value) {
-                    result[i] = mid + 1;// иначе увеличиваем на 1
+                    result[i] = mid + 1;
                     break;
                 }
             }

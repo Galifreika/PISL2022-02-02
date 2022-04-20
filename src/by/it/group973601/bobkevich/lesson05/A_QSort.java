@@ -32,7 +32,10 @@ import java.util.Scanner;
     1 6 11
     Sample Output:
     1 0 0
-
+почему сортируем по длине отрезка
+потому что хотим захватить большее количество цифр
+где сортировка
+как работает
 */
 
 
@@ -85,10 +88,11 @@ public class A_QSort {
 
         //тут реализуйте логику задачи с применением быстрой сортировки
         //в классе отрезка Segment реализуйте нужный для этой задачи компаратор
-        qSort(segments, 0, segments.length - 1);
-        for (int i = 0; i < points.length; i++) {
-            int count = 0;
-            for (Segment segment : segments) {
+        qSort(segments, 0, segments.length - 1);// метод qSort
+        for (int i = 0; i < points.length; i++) {// для числа i меньше длинны points
+            int count = 0;// присваимем каунт нулю
+            for (Segment segment : segments) {// проходит по каждому сегменту
+                //если значение которое запечатлила камера меньше минимального (начала или конца) сегмента
                 if (points[i] <= segment.stop && points[i] >= segment.start) {
                     count++;
                 }
@@ -99,27 +103,27 @@ public class A_QSort {
         return result;
     }
 
-    private void qSort(Segment[] arr, int low, int high) {
+    private void qSort(Segment[] arr, int low, int high) {//быстрая сорировка
         if (low < high) {
             int index = partition(arr, low, high);
-            qSort(arr, low, index - 1);
-            qSort(arr, index + 1, high);
+            qSort(arr, low, index - 1);// рекурсия с передачей данных
+            qSort(arr, index + 1, high);;// рекурсия с передачей данных
         }
     }
 
-    private int partition(Segment[] arr, int low, int high) {
+    private int partition(Segment[] arr, int low, int high) {// делит на части массив сегментов
         Segment pivot = arr[high];
         int i = low;
-        for (int j = low; j < high; j++) {
-            if (arr[j].compareTo(pivot) <= 0) {
-                swap(arr, i, j);
+        for (int j = low; j < high; j++) {// перебираем low и high и если условие сработает, меняем местами
+            if (arr[j].compareTo(pivot) <= 0) {// сравниваем число из массива
+                swap(arr, i, j);//вызов метода с параметрами (меняем местами)
                 i++;
             }
         }
         swap(arr, i, high);
         return i;
     }
-
+//меняет местами элементы массивов, пока не будут отсортированы
     private void swap(Segment[] arr, int first, int second) {
         Segment swap = arr[first];
         arr[first] = arr[second];

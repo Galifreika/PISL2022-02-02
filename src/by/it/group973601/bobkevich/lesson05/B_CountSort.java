@@ -33,14 +33,17 @@ public class B_CountSort {
 
         int min = 0;
         int max = 10;
+
+        //0 3 0 6 4 5 6 0 8 9 10
         int[] count = new int[max - min + 1];// размер счетчика
         for (int i = 0; i < points.length; i++) {
             int index = points[i] - min;
             count[index]++;
         }
+        //сортировка
         int pos = 0;
         for (int i = min; i < max; i++) {
-            for (int j = 0; j < count[i - min]; j++) {
+            for (int j = 0; j < count[i]; j++) {
                 points[pos++] = i;
             }
         }

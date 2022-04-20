@@ -21,7 +21,7 @@ Sample Output:
 */
 public class B_MergeSort {
 
-    private static void mergeSort(int[] arr) {
+    private static void mergeSort(int[] arr) {//рекурсия(функция вызывает сама себя); тут разбиваем массив на левую и правую части
         int n = arr.length;
         if (n == 1) return;
         int mid = n / 2;
@@ -38,12 +38,12 @@ public class B_MergeSort {
         merge (arr, left, right);
     }
 
-    private static void merge(int[] arr, int[] left, int[] right) {
-        int leftSize = left.length, rightSize = right.length, i = 0, j = 0, idx = 0;
+    private static void merge(int[] arr, int[] left, int[] right) {// берем сам массив и левую и правую части
+        int leftSize = left.length, rightSize = right.length, i = 0, j = 0, idx = 0;//смотрим размеры лев и прав
 
-        while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-                arr[idx] = left[i];
+        while (i < leftSize && j < rightSize) {//Тут конкретно сортируем
+            if (left[i] <= right[j]) {//сами числа сравниваем левое и правое
+                arr[idx] = left[i];//присваеваем arr значения (тут left)
                 i++;
                 idx++;
             } else {
@@ -52,10 +52,10 @@ public class B_MergeSort {
                 idx++;
             }
         }
-        for (int ll = i; ll < leftSize; ll++)
-            arr[idx++] = left[ll];
+        for (int ll = i; ll < leftSize; ll++)//присваивание аргументов arr{2,3}; left {2}; idx 1; i 1
+            arr[idx++] = left[ll];//присваеваем arr left
         for (int rr = j; rr < rightSize; rr++)
-            arr[idx++] = right[rr];
+            arr[idx++] = right[rr]; //arr{2,3} right {3} idx 2
     }
 
 
@@ -75,7 +75,7 @@ public class B_MergeSort {
 
         // тут ваше решение (реализуйте сортировку слиянием)
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
-
+             // считали данные и переходим к сортировке
         mergeSort(a);
 
 
@@ -86,7 +86,7 @@ public class B_MergeSort {
     }
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson04/dataB.txt");
+        InputStream stream = new FileInputStream(root + "by/it/group973601/bobkevich/lesson04/dataB.txt");
         B_MergeSort instance = new B_MergeSort();
         //long startTime = System.currentTimeMillis();
         int[] result=instance.getMergeSort(stream);
